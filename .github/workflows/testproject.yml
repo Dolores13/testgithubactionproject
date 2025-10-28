@@ -1,0 +1,32 @@
+name: Stats
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: '3.13'
+
+      - name: Run script (simulate input)
+        run: echo -e "L00196725\n33\n" | python testproject.py
+             
+      - name: commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update testproject
+          commit_user_name: Brais Moure [GitHub Actions]
+          commit_user_email: L00196725@atu.ie
+          commit_author: L00196725
+          
