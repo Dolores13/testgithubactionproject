@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -29,4 +31,6 @@ jobs:
           commit_user_name: Brais Moure [GitHub Actions]
           commit_user_email: L00196725@atu.ie
           commit_author: L00196725
+          pull_before_push: true
+          
           
