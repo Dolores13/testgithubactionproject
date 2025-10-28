@@ -20,8 +20,9 @@ jobs:
           python-version: '3.13'
 
       - name: Run script
-        run: python ./testgithubactionproject/testproject.py
-
+        working-directory: python ./testgithubactionproject/testproject.py
+        run: python testproject.py
+             
       - name: commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
